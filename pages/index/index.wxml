@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <text class='userinfo'>{{busArrival74}}</text>
+</view>
