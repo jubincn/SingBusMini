@@ -1,21 +1,22 @@
 /**index.wxss**/
-.userinfo {
+
+.bus-item {
+  word-wrap: break-word;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 30rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.bus-title {
+  font: caption;
+  font-size: 60rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.bus-arrival-times {
+  font: normal
 }
 
-.usermotto {
-  margin-top: 200px;
+.bus-arrival-time-item {
+  font: normal
+
 }

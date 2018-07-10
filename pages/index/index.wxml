@@ -1,4 +1,29 @@
 <!--index.wxml-->
 <view class="container">
-  <text class='userinfo'>{{busArrival74}}</text>
+  <view class="bus-item">
+    <text class='bus-title'>14</text>
+    <view class='bus-arrival-times'>
+      <text class='bus-arrival-time-item'>{{bus14Arrival}}</text>
+      <text class='bus-arrival-time-item'>{{bus14Arrival2}}</text>
+      <text class='bus-arrival-time-item'>{{bus14Arrival3}}</text>
+    </view>
+  </view>
+
+  <view class="bus-item">
+    <text class='bus-title'>74</text>
+    <view class='bus-arrival-times'>
+      <text class='bus-arrival-time-item'>{{bus74Arrival}}</text>
+      <text class='bus-arrival-time-item'>{{bus74Arrival2}}</text>
+      <text class='bus-arrival-time-item'>{{bus74Arrival3}}</text>
+    </view>
+  </view>
+
+  <view class="bus-item">
+    <text class='bus-title'>166</text>
+    <view class='bus-arrival-times'>
+      <text class='bus-arrival-time-item'>{{bus166Arrival}}</text>
+      <text class='bus-arrival-time-item'>{{bus166Arrival2}}</text>
+      <text class='bus-arrival-time-item'>{{bus166Arrival3}}</text>
+    </view>
+  </view>
 </view>
