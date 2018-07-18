@@ -3,27 +3,28 @@
   <view class="bus-item">
     <text class='bus-title'>14</text>
     <view class='bus-arrival-times'>
-      <text class='bus-arrival-time-item'>{{bus14Arrival}}</text>
-      <text class='bus-arrival-time-item'>{{bus14Arrival2}}</text>
-      <text class='bus-arrival-time-item'>{{bus14Arrival3}}</text>
+      <text wx:if="{{bus14Arrival  !== null}}" class='bus-arrival-time-item'>{{bus14Arrival}}</text>
+      <text wx:if="{{bus14Arrival2 !== null}}" class='bus-arrival-time-item'>{{bus14Arrival2}}</text>
+      <text wx:if="{{bus14Arrival3 !== null}}"  class='bus-arrival-time-item'>{{bus14Arrival3}}</text>      
+      <text wx:else  class='bus-arrival-time-item.empty'>no data</text>
     </view>
   </view>
 
   <view class="bus-item">
     <text class='bus-title'>74</text>
     <view class='bus-arrival-times'>
-      <text class='bus-arrival-time-item'>{{bus74Arrival}}</text>
-      <text class='bus-arrival-time-item'>{{bus74Arrival2}}</text>
-      <text class='bus-arrival-time-item'>{{bus74Arrival3}}</text>
+      <text wx:if="{{bus74Arrival != null}}" class='bus-arrival-time-item'>{{bus74Arrival}}</text>
+      <text wx:if="{{bus74Arrival2 != null}}" class='bus-arrival-time-item'>{{bus74Arrival2}}</text>
+      <text wx:if="{{bus74Arrival3 != null}}" class='bus-arrival-time-item'>{{bus74Arrival3}}</text>
     </view>
   </view>
 
   <view class="bus-item">
     <text class='bus-title'>166</text>
     <view class='bus-arrival-times'>
-      <text class='bus-arrival-time-item'>{{bus166Arrival}}</text>
-      <text class='bus-arrival-time-item'>{{bus166Arrival2}}</text>
-      <text class='bus-arrival-time-item'>{{bus166Arrival3}}</text>
+      <text wx:if="{{bus166Arrival != null}}" class='bus-arrival-time-item'>{{bus166Arrival}}</text>
+      <text wx:if="{{bus166Arrival2 != null}}" class='bus-arrival-time-item'>{{bus166Arrival2}}</text>
+      <text wx:if="{{bus166Arrival3 != null}}" class='bus-arrival-time-item'>{{bus166Arrival3}}</text>
     </view>
   </view>
 </view>

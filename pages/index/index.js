@@ -5,9 +5,15 @@ const ONE_MINUTE_MILLIS = 60 * 1000;
 
 Page({
   data: {
-    busArrival14: "",
-    busArrival74: "",
-    busArrival166: ""
+    bus14Arrival: "",
+    bus14Arrival2: "",
+    bus14Arrival3: "",
+    bus74Arrival: "",
+    bus74Arrival2: "",
+    bus74Arrival3: "",
+    bus166Arrival: "",
+    bus166Arrival2: "",
+    bus166Arrival3: ""
   },
   //事件处理函数
   bindViewTap: function () {
@@ -30,40 +36,54 @@ Page({
         ServiceNo: serviceNo
       },
       success: function (resp) {
-        let busService = JSON.parse(resp.data).Services[0];
-        console.log("success callback:" + serviceNo);
-        console.log(busService.NextBus);
-        return;
-        let nextBusArrival = Date.parse(busService.NextBus.EstimatedArrival);
+        let busService = JSON.parse(resp.data).Services[0];        
+
+        let nextBusArrival = Date.parse(busService.NextBus.EstimatedArrival);        
+        let countDownText = that.getArrivalMinutesText(nextBusArrival);
         let nextBusArrival2 = Date.parse(busService.NextBus2.EstimatedArrival);
+        let countDownText2 = that.getArrivalMinutesText(nextBusArrival2);
         let nextBusArrival3 = Date.parse(busService.NextBus3.EstimatedArrival);
-        let countDownMillis = nextBusArrival - Date.now();
-        let countDownMins = Math.max(countDownMillis, 0) / (1000 * 60);
-        let countDownText = Math.round(countDownMins) + " mins"
-        switch (serviceNo) {
-          case 14:
-            that.setData({
-              busArrival14: countDownText
-            });
+        let countDownText3 = that.getArrivalMinutesText(nextBusArrival3);
+
+        countDownText3 = null;
+
+        switch (serviceNo) {         
+          case 14:            
+            that.setData({              
+              bus14Arrival:   countDownText,
+              bus14Arrival2:  countDownText2,
+              bus14Arrival3:  countDownText3
+            });            
             break;
           case 74:
             that.setData({
-              busArrival74: countDownText
+              bus74Arrival:   countDownText,
+              bus74Arrival2:  countDownText2,
+              bus74Arrival3:  countDownText3,
             });
             break;
           case 166:
             that.setData({
-              busArrival166: countDownText
+              bus166Arrival: countDownText,
+              bus166Arrival2: countDownText2,
+              bus166Arrival3: countDownText3
             });
             break;
         }
-        setTimeout(function () {          
+
+        setTimeout(function () {
           that.getBusArrival(busStopCode, serviceNo)
         }, ONE_MINUTE_MILLIS);
       }
     })
   },
-  getArrivalMinutesText: function(busArrivalMillis) {
-
+  getArrivalMinutesText: function (busArrivalMillis) {
+    if(busArrivalMillis > 0) {
+      let countDownMillis = busArrivalMillis - Date.now();
+      let countDownMins = Math.max(countDownMillis, 0) / (1000 * 60);
+      return Math.round(countDownMins) + "mins";
+    } else {
+      return null;
+    }
   }
 })
